@@ -141,7 +141,7 @@ const PathFindingVisualizer = props => {
             setTimeout(() => {
               const node = shortestPathData[j];
               document.getElementById(`node-${node.row}-${node.col}`).className = "grid-item node-shortest-path";
-            }, 100 * j)
+            }, 10 * j)
           }
         }
       }, 100 * i);

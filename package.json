@@ -48,12 +48,7 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "@commitlint/cli": "^11.0.0",
-    "@commitlint/config-conventional": "^11.0.0",
-    "auto-changelog": "^2.2.1",
-    "husky": "^4.3.0"
-  },
+  
   "repository": {
     "type": "git",
     "url": "https://github.com/jannomeister/pathfinder"
