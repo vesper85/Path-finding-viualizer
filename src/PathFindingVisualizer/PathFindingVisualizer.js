@@ -6,6 +6,7 @@ import { dijkstra } from '../algorithms/dijkstra';
 import { breadthFirstSearch } from '../algorithms/breadthFirstSearch';
 import { depthFirstSearchSearch } from '../algorithms/depthFirstSearch';
 import { aStar } from '../algorithms/aStar';
+import { bestfirstsearch } from '../algorithms/bestFirstSearch'
 
 import './PathFindingVisualizer.css';
 
@@ -150,6 +151,31 @@ const PathFindingVisualizer = props => {
     setNodes(newNodes);
   }
 
+  const visualizeBestFS = (heuristic, isDiagonal) => {
+    const start = nodes[startNode.row][startNode.col];
+    const finish = nodes[endNode.row][endNode.col];
+    const data = bestfirstsearch(nodes, start, finish, heuristic, isDiagonal);
+    const newNodes = nodes.slice();
+    const shortestPathData = getShortestPath(finish);
+    for (let i = 0; i < data.length; i++) {
+      setTimeout(() => {
+        const node = data[i];
+        document.getElementById(`node-${node.row}-${node.col}`).className = "grid-item node-visited";
+
+        if (i === data.length - 1) {
+          for (let j = 0; j < shortestPathData.length; j++) {
+            setTimeout(() => {
+              const node = shortestPathData[j];
+              document.getElementById(`node-${node.row}-${node.col}`).className = "grid-item node-shortest-path";
+            }, 100 * j)
+          }
+        }
+      }, 100 * i);
+    }
+
+    setNodes(newNodes);
+  }
+
   const onVisualize = (algorithm, heuristic, isDiagonal) => {
     if (algorithm === "dijkstra") {
       visualizeDijkstra()
@@ -159,6 +185,8 @@ const PathFindingVisualizer = props => {
       visualizeBFS();
     } else if (algorithm === "DFS") {
       visualizeDFS();
+    } else if (algorithm === "BestFS") {
+      visualizeBestFS(heuristic, isDiagonal);
     }
   }
 

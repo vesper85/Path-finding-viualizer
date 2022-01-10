@@ -61,14 +61,15 @@ const Control = ({ start, finish, hasMaze, visualize, generateMaze, clearPath, r
             <option value="astar">A star</option>
             <option value="BFS">Breadth First Search</option>
             <option value="DFS">Depth First Search</option>
+            <option value="BestFS">Best First Search</option>
           </FormControl>
         </Container>
 
-        {algorithm === "astar" && (
+        {(algorithm === "astar" || algorithm === "BestFS") && (
           <Heuristic heuristic={heuristic} onChange={e => setHeuristic(e.target.value)} />
         )}
 
-        {algorithm === "astar" && (
+        {(algorithm === "astar" || algorithm === "BestFS") && (
           <DiagonalOption isDiagonal={isDiagonal} onChange={e => setIsDiagonal(e.target.checked)} />
         )}
 
