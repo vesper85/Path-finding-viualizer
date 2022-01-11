@@ -1,6 +1,5 @@
 import { findNeighbors } from '../config';
 
-// check http://theory.stanford.edu/~amitp/GameProgramming/Heuristics.html#heuristics-for-grid-maps
 const heuristic = {
 
   // standard

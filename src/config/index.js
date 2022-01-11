@@ -21,10 +21,10 @@ const _getNode = (col, row) => {
     isFinish: false,
     isVisited: false,
     isWall: false,
-    f: 0, // for A* algorithm
-    g: 0, // for A* algorithm
-    h: 0, // for A* algorithm
-    closed: false // for A* algorithm
+    f: 0, // for A* algorithm 
+    g: 0, // for A* algorithm and BestFS
+    h: 0, // for A* algorithm and BestFS
+    closed: false // for A* algorithm and BestFS
   };
 }
 

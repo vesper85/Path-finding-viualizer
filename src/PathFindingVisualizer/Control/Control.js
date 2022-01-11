@@ -31,9 +31,9 @@ const Control = ({ start, finish, hasMaze, visualize, generateMaze, clearPath, r
 
       <Form>
         <ButtonGroup style={{ marginBottom: 10 }}>
-          <Button variant="outline-secondary" disabled={!canGenerate} onClick={generateMaze}>
+          {/* <Button variant="outline-secondary" disabled={!canGenerate} onClick={generateMaze}>
             Generate Maze
-          </Button>
+          </Button> */}
           <Button variant="outline-secondary" disabled={!hasMaze} onClick={clearPath}>
             Clear Path
           </Button>
